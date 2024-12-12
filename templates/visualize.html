@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização de Previsões</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .chart-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .chart-container img {
+            flex: 1;
+            max-width: 48%;
+            min-width: 48%;
+            height: auto;
+        }
+        .chart-container div {
+            flex: 1;
+            max-width: 48%;
+            min-width: 48%;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Visualização de Previsões</h2>
+
+        <!-- Tabela de Dados -->
+        <div class="mb-4">
+            <h4>Tabela de Dados</h4>
+            <div class="table-responsive">
+                {{ table | safe }}
+            </div>
+        </div>
+
+        <!-- Gráficos -->
+        <div class="chart-container">
+            <!-- Gráfico Estático -->
+            <div>
+                <h4>Gráfico Estático</h4>
+                <img src="{{ url_for('static', filename='static_plot.png') }}" alt="Gráfico Estático" class="img-fluid">
+            </div>
+
+            <!-- Gráfico de Pizza -->
+            <div>
+                <h4>Gráfico de Pizza</h4>
+                <img src="{{ url_for('static', filename='pie_chart.png') }}" alt="Gráfico de Pizza" class="img-fluid">
+            </div>
+        </div>
+
+        <!-- Gráfico Interativo -->
+        <div class="mt-4">
+            <h4>Gráfico Interativo</h4>
+            {{ interactive_plot | safe }}
+        </div>
+
+        <!-- Botão Voltar -->
+        <div class="text-center mt-4">
+            <a href="{{ url_for('predict') }}" class="btn btn-secondary">Voltar</a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
