@@ -40,7 +40,7 @@ Este projeto utiliza Flask, PyCaret, Matplotlib, Seaborn e Plotly para realizar 
 
 1. **Clone o repositório**:
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/araujojv/Projeto_Inova.git
    cd seu-repositorio
    ```
 
